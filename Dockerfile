@@ -1,9 +1,10 @@
 FROM node:lts-alpine as build-deps
 
 WORKDIR /usr/src/app
-
+RUN mkdir -p dist
+COPY leggo.jpg ./dist
 RUN npm i gitfolio -g --silent
-RUN gitfolio build gregoire78 --sort updated --order desc --theme light --background https://wallpaper-house.com/data/out/6/wallpaper2you_89162.jpg
+RUN gitfolio build gregoire78 --sort updated --order desc --theme light --background "./leggo.jpg"
 
 EXPOSE 3000
 
