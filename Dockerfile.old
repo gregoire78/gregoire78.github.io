@@ -1,0 +1,16 @@
+FROM node:lts-alpine
+
+LABEL "author"="Grégoire Joncour"
+LABEL "website"="https://gregoirejoncour.xyz"
+LABEL "description"="personal website and blog"
+
+WORKDIR /usr/src/app
+RUN mkdir -p dist
+
+RUN npm i gitfolio -g
+
+EXPOSE 3000
+
+ENTRYPOINT [ "gitfolio" ]
+
+CMD [ "ui" ]
